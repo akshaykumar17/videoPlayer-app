@@ -8,7 +8,8 @@ class SearchBar extends Component {
         this.state = { input: '' };
     }
     handleChange(e) {
-        this.setState({ input: e.target.value })
+        this.setState({ input: e.target.value });
+        this.props.videoSearch(this.state.input);
     }
     searchInput()
     {
@@ -16,12 +17,12 @@ class SearchBar extends Component {
     }
     render() {
         return (
-            <div className="search">
-                <input placeholder="search video"
+            <div className="search form-group ">
+                <input  className="form-control"
+                        placeholder="search video"
                         value={this.state.input}
                         onChange={this.handleChange.bind(this)}
                 />
-                <button type="submit" onClick={this.searchInput.bind(this)}>Search</button>
             </div>
         );
     }
